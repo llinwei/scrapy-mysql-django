@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>首页</title>
+</head>
+<body>
+<h1>小说列表</h1>
+{% for novel in novels %}
+<ul>
+<li >
+<a href='{{novel.burl}}'>{{novel.bname}}</a>
+<br><a href='{{novel.bauturl}}'>{{novel.bauthor}}</a><br>
+<br><a href='#'>{{novel.btype}}</a>
+<span>    {{novel.bstate}}  </span><br>
+<br><span>{{novel.bintro}}</span><br>
+<br><img src='{{novel.bimg}}'/><br>
+</li>
+</ul>
+{% endfor %}
+<ul>
+{% for index in novels.paginator.page_range %}
+<li> 
+<a href='/page/{{index}}'>{{index}}</a>
+<li>
+{% endfor %}
+</ul>
+</body>
+</html>
